@@ -21,7 +21,7 @@ from django.views.decorators.cache import cache_page
 # from .views import AboutView, VideoDetailView, VideoListView, random_vids
 from .views import MainHomeView
 
-app_name: str = "main"
+app_name = "main"
 
 if settings.DEBUG:
     home = path("", MainHomeView.as_view(), name="index")
