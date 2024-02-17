@@ -1,4 +1,4 @@
-"""config URL Configuration
+"""video URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.1/topics/http/urls/
@@ -14,20 +14,23 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
-from decouple import config
 from django.conf import settings
-from django.conf.urls.static import static
-from django.contrib import admin
-from django.urls import include, path
+from django.urls import path
+from django.views.decorators.cache import cache_page
 
-ADMIN: str = config("ADMIN", cast=str)
+# from .views import AboutView, VideoDetailView, VideoListView, random_vids
 
-urlpatterns: list = [
-    path(ADMIN, admin.site.urls),
-    path("", include("apps.main.urls")),
-    path("__debug__/", include("debug_toolbar.urls")),
-    path("__reload__/", include("django_browser_reload.urls")),
-]
+app_name: str = "main"
 
-if settings.DEBUG:
-    urlpatterns.extend(static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT))
+# if settings.DEBUG:
+#     home = path("", VideoListView.as_view(), name="index")
+# else:
+#     twelve_hours: int = 60 * 60 * 12
+#     home = path("", cache_page(twelve_hours)(VideoListView.as_view()), name="index")
+
+# urlpatterns = [
+#     home,
+#     path("<int:pk>/", VideoDetailView.as_view(), name="detail"),
+#     path("about/", AboutView.as_view(), name="about"),
+#     path("random/", random_vids, name="randomize"),
+# ]
