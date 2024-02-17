@@ -1,0 +1,17 @@
+/* global styles */
+
+body {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+main {
+  display: grid;
+  margin-block: 0;
+  margin-inline: auto;
+  width: min(90%, 1000px);
+}
+
+svg {
+  width: 1.8rem;
+}
