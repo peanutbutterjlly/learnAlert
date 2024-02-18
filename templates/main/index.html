@@ -1,9 +1,37 @@
 {% extends 'base.html' %}
-
 {% block content %}
-<main>
-    <h1>Learn Alert</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui molestias saepe voluptatem eaque tempore ipsum omnis
-        facilis voluptates dolorum iusto!</p>
-</main>
+
+<style>
+    .index-flex {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-block: 1rem;
+    }
+
+    .index-video {
+        aspect-ratio: 1/1;
+        border-radius: 8px;
+        flex: 1 0 10rem;
+    }
+</style>
+
+
+<h1 class="sr-only">Learn Alert Homepage</h1>
+<section class="index-section videos">
+    <h2>Latest Videos</h2>
+    <div class="index-flex">
+        <lite-youtube class="index-video" videoid="guJLfqTFfIw" autoload nocookie></lite-youtube>
+        <lite-youtube class="index-video" videoid="guJLfqTFfIw" autoload nocookie></lite-youtube>
+        <lite-youtube class="index-video" videoid="guJLfqTFfIw" autoload nocookie></lite-youtube>
+        <lite-youtube class="index-video" videoid="guJLfqTFfIw" autoload nocookie></lite-youtube>
+        <lite-youtube class="index-video" videoid="guJLfqTFfIw" autoload nocookie></lite-youtube>
+        <lite-youtube class="index-video" videoid="guJLfqTFfIw" autoload nocookie></lite-youtube>
+    </div>
+</section>
+
+<section class="index-section posts">
+    <h2>Latest Posts</h2>
+</section>
+
 {% endblock %}

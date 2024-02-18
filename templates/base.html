@@ -11,14 +11,14 @@
 
         :root {
             /* colors */
-            --yellow-300: 48, 100%, 65%;
-            --yellow: 48, 89%, 61%;
-            --dark-gray-300: 220, 4%, 18%;
-            --dark-gray: 220, 4%, 15%;
-            --dark-gray-500: 220, 4%, 13%;
+            --white-300: 50, 11%, 93%;
+            --white: 50, 11%, 89%;
+            --black-300: 60, 3%, 17%;
+            --black: 60, 3%, 14%;
+            --black-500: 60, 3%, 12%;
 
-            --primary: hsl(var(--yellow));
-            --secondary: hsl(var(--dark-gray));
+            --primary: hsl(var(--white));
+            --secondary: hsl(var(--black));
 
             --background-color: var(--secondary);
             --color: var(--primary);
@@ -65,11 +65,11 @@
 
         html {
             scrollbar-width: thin;
-            scrollbar-color: var(--color) hsl(var(--dark-gray-500));
+            scrollbar-color: var(--color) hsl(var(--black-500));
         }
 
         ::-webkit-scrollbar {
-            background-color: hsl(var(--dark-gray-500));
+            background-color: hsl(var(--black-500));
         }
 
         ::-webkit-scrollbar-thumb {
@@ -168,10 +168,16 @@
     <link rel="stylesheet" href="{% static 'styles.css' %}">
     <title>{% block title %}Learn Alert{% endblock %}</title>
     <script src="{% static 'htmx.min.js' %}" defer></script>
+    <script src="{% static 'liteYtEmbed.js' %}" type="module"></script>
 </head>
 
 <body>
-    {% block content %}{% endblock %}
+    <div class="wrapper">
+        {% include 'partials/_navigation.html' %}
+        <main id="main">
+            {% block content %}{% endblock %}
+        </main>
+    </div>
 </body>
 
 </html>
