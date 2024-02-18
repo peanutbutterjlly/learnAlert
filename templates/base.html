@@ -27,7 +27,7 @@
             --heading-font-family: ui-rounded, 'Hiragino Maru Gothic ProN', Quicksand,
                 Comfortaa, Manjari, 'Arial Rounded MT', 'Arial Rounded MT Bold', Calibri,
                 source-sans-pro, sans-serif;
-            --font-size: clamp(1rem, calc(0.4vw + 1rem), 2rem);
+            --font-size: clamp(1rem, calc(1.6vw + 0.3rem), 1.5rem);
             --line-height: 1.6;
             --heading-line-height: 1.15;
             --measure: 80ch;
@@ -167,6 +167,7 @@
     </style>
     <link rel="stylesheet" href="{% static 'styles.css' %}">
     <title>{% block title %}Learn Alert{% endblock %}</title>
+    <script src="{% static 'htmx.min.js' %}" defer></script>
 </head>
 
 <body>
