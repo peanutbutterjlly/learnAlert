@@ -322,7 +322,7 @@ body {
 main {
   display: block;
 }
-
+body > footer,
 body > header,
 body > main {
   width: 100%;
@@ -332,7 +332,7 @@ body > main {
     var(--pico-block-spacing-horizontal);
 }
 @media (min-width: 576px) {
-  
+  body > footer,
   body > header,
   body > main {
     max-width: 510px;
@@ -341,28 +341,28 @@ body > main {
   }
 }
 @media (min-width: 768px) {
-  
+  body > footer,
   body > header,
   body > main {
     max-width: 700px;
   }
 }
 @media (min-width: 1024px) {
-  
+  body > footer,
   body > header,
   body > main {
     max-width: 950px;
   }
 }
 @media (min-width: 1280px) {
-  
+  body > footer,
   body > header,
   body > main {
     max-width: 1200px;
   }
 }
 @media (min-width: 1536px) {
-  
+  body > footer,
   body > header,
   body > main {
     max-width: 1450px;
@@ -441,7 +441,7 @@ article {
   background: var(--pico-card-background-color);
   box-shadow: var(--pico-card-box-shadow);
 }
-
+article > footer,
 article > header {
   margin-right: calc(var(--pico-block-spacing-horizontal) * -1);
   margin-left: calc(var(--pico-block-spacing-horizontal) * -1);
@@ -455,6 +455,13 @@ article > header {
   border-bottom: var(--pico-border-width) solid var(--pico-card-border-color);
   border-top-right-radius: var(--pico-border-radius);
   border-top-left-radius: var(--pico-border-radius);
+}
+article > footer {
+  margin-top: var(--pico-block-spacing-vertical);
+  margin-bottom: calc(var(--pico-block-spacing-vertical) * -1);
+  border-top: var(--pico-border-width) solid var(--pico-card-border-color);
+  border-bottom-right-radius: var(--pico-border-radius);
+  border-bottom-left-radius: var(--pico-border-radius);
 }
 :root {
   --pico-scrollbar-width: 0px;
