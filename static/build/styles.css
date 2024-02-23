@@ -35,30 +35,6 @@ html:focus-within {
   scroll-behavior: smooth;
 }
 
-:where(img, picture, video, canvas, svg) {
-  display: block;
-  font-style: italic;
-  text-align: center;
-}
-
-:where(input, button, textarea, select) {
-  font: inherit;
-}
-
-:where(p, h1, h2, h3, h4, h5, h6, li) {
-  max-inline-size: var(--measure);
-}
-
-:is(h1, h2, h3, h4, h5, h6) {
-  line-height: var(--heading-line-height);
-  font-family: var(--heading-font-family);
-  font-weight: 600;
-  letter-spacing: -0.022em;
-  margin-top: 2.25rem;
-  margin-bottom: 1rem;
-  text-wrap: balance;
-}
-
 h1 {
   font-size: 2.986rem;
   margin-top: 0;
@@ -66,22 +42,6 @@ h1 {
 
 h2 {
   font-size: 2.488rem;
-}
-
-h3 {
-  font-size: 2.074rem;
-}
-
-h4 {
-  font-size: 1.728rem;
-}
-
-h5 {
-  font-size: 1.44rem;
-}
-
-small {
-  font-size: 0.889rem;
 }
 
 a {
@@ -101,39 +61,4 @@ p {
   overflow: hidden;
   padding: 0;
   position: absolute;
-}
-
-header {
-  background: var(--pico-background-color) 08;
-  margin-block: 0;
-}
-
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-nav .logo {
-  font-size: 1.5rem;
-  font-weight: 500;
-  margin-right: auto;
-}
-
-nav ul {
-  display: flex;
-  list-style: none;
-  gap: 1rem;
-}
-
-.header-divider {
-  margin: 0;
-}
-
-.content-line {
-  margin: 0;
-}
-
-footer {
-  margin-block: 1em;
 }
