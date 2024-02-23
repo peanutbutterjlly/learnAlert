@@ -10,8 +10,8 @@ def find_base_directory() -> str:
 def find_css_files(base_dir: str) -> list:
     """Return a list of absolute paths to css files."""
     return [
-        f"{base_dir}/apps/main/static/styles.css",
-        f"{base_dir}/apps/main/static/pico.css",
+        f"{base_dir}/apps/main/static/css/styles.css",
+        f"{base_dir}/apps/main/static/css/pico.css",
     ]
 
 
@@ -34,7 +34,7 @@ def find_html_files(base_dir: str) -> list:
 
 def define_output_file(base_dir: str) -> str:
     """Return the path to the output file."""
-    return f"{base_dir}/static/build/"
+    return f"{base_dir}/static/build/css/"
 
 
 def main() -> None:

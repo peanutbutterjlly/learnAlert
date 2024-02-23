@@ -1,42 +1,12 @@
 {% extends 'base.html' %}
+
 {% block content %}
-
-<style>
-    .index-flex {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1rem;
-        margin-block: 1rem;
-    }
-
-    .index-video {
-        aspect-ratio: 1/1;
-        border-radius: 8px;
-        flex: 1 0 15rem;
-    }
-
-    .index-section-post-wrapper article {
-        margin-block-end: 2rem;
-    }
-
-    .post-title {
-        font-size: 1.5rem;
-    }
-
-    .post-description {
-        font-size: 1.1rem;
-        margin-bottom: .8rem;
-    }
-</style>
-
 
 <h1 class="sr-only">Learn Alert Homepage</h1>
 <section class="index-section videos">
     <h2>Latest Videos</h2>
+    <p>Explore curated coding tutorials from YouTube to enhance your web development and programming skills.</p>
     <div class="index-flex">
-        <lite-youtube class="index-video" videoid="guJLfqTFfIw" autoload nocookie></lite-youtube>
-        <lite-youtube class="index-video" videoid="guJLfqTFfIw" autoload nocookie></lite-youtube>
-        <lite-youtube class="index-video" videoid="guJLfqTFfIw" autoload nocookie></lite-youtube>
         <lite-youtube class="index-video" videoid="guJLfqTFfIw" autoload nocookie></lite-youtube>
         <lite-youtube class="index-video" videoid="guJLfqTFfIw" autoload nocookie></lite-youtube>
         <lite-youtube class="index-video" videoid="guJLfqTFfIw" autoload nocookie></lite-youtube>
@@ -45,35 +15,43 @@
 
 <section class="index-section posts">
     <h2>Latest Posts</h2>
+    <p>Insights and thoughts on the journey of learning to code, featuring tips, tricks, and tutorials.</p>
     <div class="index-section-post-wrapper">
-        <article>
-            <a href="">
+        <a href="">
+            <article>
                 <h2 class="post-title">Post Title</h2>
                 <p class="post-description">Description text</p>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus distinctio aliquam laborum
                     accusantium
                     maiores. Possimus.</p>
-            </a>
-        </article>
-        <article>
-            <a href="">
+            </article>
+        </a>
+        <a href="">
+            <article>
                 <h2 class="post-title">Post Title</h2>
                 <p class="post-description">Description text</p>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus distinctio aliquam laborum
                     accusantium
                     maiores. Possimus.</p>
-            </a>
-        </article>
-        <article>
-            <a href="">
+            </article>
+        </a>
+        <a href="">
+            <article>
                 <h2 class="post-title">Post Title</h2>
                 <p class="post-description">Description text</p>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus distinctio aliquam laborum
                     accusantium
                     maiores. Possimus.</p>
-            </a>
-        </article>
+            </article>
+        </a>
     </div>
+</section>
+
+<section class="index-section about">
+    <h3>About this project</h3>
+    <p>This website is designed to help aspiring developers through a curated list of tutorials and personal insights
+        into the
+        coding journey.</p>
 </section>
 
 {% endblock %}

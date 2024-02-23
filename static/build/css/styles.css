@@ -15,7 +15,6 @@
   --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1),
     0 8px 10px -6px rgb(0 0 0 / 0.1);
 
-  font-weight: var(--font-weight);
   font-size: var(--font-size);
   line-height: var(--line-height);
   font-family: var(--font-family);
@@ -35,6 +34,10 @@ html:focus-within {
   scroll-behavior: smooth;
 }
 
+/* :where(p, h1, h2, h3, h4, h5, h6, li) {
+  max-inline-size: var(--measure);
+} */
+
 h1 {
   font-size: 2.986rem;
   margin-top: 0;
@@ -42,6 +45,10 @@ h1 {
 
 h2 {
   font-size: 2.488rem;
+}
+
+h3 {
+  font-size: 2.074rem;
 }
 
 a {
@@ -63,6 +70,7 @@ p {
   position: absolute;
 }
 
+/* templates/partials/_navigation.html */
 header {
   background: var(--pico-background-color) 08;
   margin-block: 0;
@@ -86,10 +94,53 @@ nav ul {
   gap: 1rem;
 }
 
+.dark-mode-toggle {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* i want to get rid of the content ::before thats on the .dark-mode-toggle's parent */
+nav li:last-of-type::before {
+  content: none;
+}
+
 .content-line {
   margin: 0;
 }
 
+/* templates/partials/_footer.html */
 footer {
   margin-block: 1em;
+}
+
+footer ul {
+  margin: 0;
+}
+
+footer ul li {
+  list-style: none;
+}
+
+/* templates/main/index.html */
+.index-flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-block: 1rem;
+}
+
+.index-video {
+  aspect-ratio: 1/1;
+  border-radius: 8px;
+  flex: 1 0 13rem;
+}
+
+.post-title {
+  font-size: 1.5rem;
+}
+
+.post-description {
+  font-size: 1.1rem;
+  margin-bottom: 0.8rem;
 }

@@ -1,20 +1,22 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark" class="dark">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'pico.css' %}">
+    <link rel="stylesheet" href="{% static 'css/pico.css' %}">
     <link rel="stylesheet" href="{% static 'styles.css' %}">
-    <script src="{% static 'htmx.min.js' %}" defer></script>
-    <script src="{% static 'liteYtEmbed.js' %}" type="module"></script>
+    <script src="{% static 'js/htmx.min.js' %}" defer></script>
+    <script src="{% static 'js/liteYtEmbed.js' %}" type="module"></script>
+    <script src="{% static 'js/themeToggle.js' %}" type="module"></script>
     <title>{% block title %}Learn Alert{% endblock %}</title>
     {% block style %}{% endblock style %}
 </head>
 
 <body>
     {% include 'partials/_navigation.html' %}
+
     <main id="main">
         {% block content %}{% endblock %}
     </main>
