@@ -6,12 +6,7 @@
 <section class="index-section videos">
     <h2>Latest Videos</h2>
     <p>Explore curated coding tutorials from YouTube to enhance your web development and programming skills.</p>
-    <div class="index-flex">
-        {% for video in videos %}
-        <lite-youtube class="index-video" videoid="{{ video.vid_id }}" videotitle="{{ video.title }}" autoload
-            nocookie></lite-youtube>
-        {% endfor %}
-    </div>
+    {% include 'partials/_video_list.html' %}
 </section>
 
 <section class="index-section posts">

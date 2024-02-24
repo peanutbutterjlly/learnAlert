@@ -1,7 +1,7 @@
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render
-from django.views.generic import TemplateView
 from django.views.decorators.http import require_GET
+from django.views.generic import TemplateView
 
 from apps.blog.models import BlogPost
 from apps.video.models import Video
@@ -27,7 +27,7 @@ def video_list(request: HttpRequest) -> HttpResponse:
     if request.htmx:
         template_name = "partials/_video_list.html"
     else:
-        template_name = "main/index.html"
+        template_name = "main/videos.html"
 
     return render(request, template_name, {"videos": videos})
 
