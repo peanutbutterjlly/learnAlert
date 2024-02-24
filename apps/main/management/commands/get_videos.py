@@ -30,9 +30,9 @@ class Command(BaseCommand):
         MAX_RESULTS = 3
         # the total number of videos you'll be getting is MAX_RESULTS * len(QUERIES)
         QUERIES = {
+            "javascript": "Javascript",
             "django python programming": "Django",
             "html css javascript": "Web Development",
-            "javascript": "Javascript",
         }
 
         search_results_for_video_ids: list[dict] = []
