@@ -1,3 +1,8 @@
 from django.contrib import admin
 
-# Register your models here.
+from apps.video.models import Video
+
+
+@admin.register(Video)
+class VideoAdmin(admin.ModelAdmin):
+    pass

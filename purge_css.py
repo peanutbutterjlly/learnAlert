@@ -1,5 +1,5 @@
-from pathlib import Path
 import os
+from pathlib import Path
 
 
 def find_base_directory() -> str:
@@ -9,15 +9,14 @@ def find_base_directory() -> str:
 
 def find_css_files(base_dir: str) -> list:
     """Return a list of absolute paths to css files."""
-    return [
-        f"{base_dir}/apps/main/static/css/styles.css",
-        f"{base_dir}/apps/main/static/css/pico.css",
-    ]
+    css_files = []
+    for root, _, files in os.walk(f"{base_dir}/static/src/css"):
+        for file in files:
+            if file.endswith(".css"):
+                absolute_path = f"{root}/{file}"
+                css_files.append(absolute_path)
 
-
-def exclude_venv_directory(base_dir: str) -> str:
-    """Return the path to the venv directory."""
-    return f"{base_dir}/venv"
+    return css_files
 
 
 def find_html_files(base_dir: str) -> list:
@@ -46,13 +45,12 @@ def main() -> None:
     """
     base_dir = find_base_directory()
     css_files = find_css_files(base_dir)
-    excluded_directory = exclude_venv_directory(base_dir)
     html_files = find_html_files(base_dir)
     output_file = define_output_file(base_dir)
 
-    print(
-        f"npx purgecss --css {' '.join(css_files)} --content {' '.join(html_files)} --output {output_file}"
-    )
+    purge_css_command = f"npx purgecss --css {' '.join(css_files)} --content {' '.join(html_files)} --output {output_file}"
+
+    print(purge_css_command)
 
 
 if __name__ == "__main__":
