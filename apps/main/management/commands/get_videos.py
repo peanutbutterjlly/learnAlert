@@ -17,9 +17,10 @@ from apps.video.models import Video
 
 
 class Command(BaseCommand):
-    help = "Scraper that will get the videos from the YouTube API to be stored in the database."
+    help = "Bot that will get the videos from the YouTube API to be stored in the database."
 
     def __init__(self, *args, **kwargs) -> None:
+        """initialize the YouTube API service"""
         super().__init__(*args, **kwargs)
         self.api_key: str = config("YOUTUBE_API_KEY")
         self.youtube_service = build("youtube", "v3", developerKey=self.api_key)
@@ -30,9 +31,10 @@ class Command(BaseCommand):
         MAX_RESULTS = 3
         # the total number of videos you'll be getting is MAX_RESULTS * len(QUERIES)
         QUERIES = {
-            "javascript": "Javascript",
+            "javascript web development tips and tricks": "Javascript",
             "django python programming": "Django",
-            "html css javascript": "Web Development",
+            "html css javascript web development": "Web Development",
+            "css programming tips and tricks": "CSS",
         }
 
         search_results_for_video_ids: list[dict] = []
