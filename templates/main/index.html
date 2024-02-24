@@ -7,9 +7,10 @@
     <h2>Latest Videos</h2>
     <p>Explore curated coding tutorials from YouTube to enhance your web development and programming skills.</p>
     <div class="index-flex">
-        <lite-youtube class="index-video" videoid="guJLfqTFfIw" autoload nocookie></lite-youtube>
-        <lite-youtube class="index-video" videoid="guJLfqTFfIw" autoload nocookie></lite-youtube>
-        <lite-youtube class="index-video" videoid="guJLfqTFfIw" autoload nocookie></lite-youtube>
+        {% for video in videos %}
+        <lite-youtube class="index-video" videoid="{{ video.vid_id }}" videotitle="{{ video.title }}" autoload
+            nocookie></lite-youtube>
+        {% endfor %}
     </div>
 </section>
 
