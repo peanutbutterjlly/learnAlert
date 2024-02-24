@@ -4,6 +4,9 @@ from django.db import models
 class Category(models.Model):
     name = models.CharField(max_length=50)
 
+    def __str__(self) -> str:
+        return self.name
+
 
 class Comment(models.Model):
     content = models.TextField()
@@ -24,3 +27,6 @@ class Comment(models.Model):
         null=True,
         blank=True,
     )
+
+    def __str__(self) -> str:
+        return self.content[:20]
