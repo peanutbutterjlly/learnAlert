@@ -3,7 +3,8 @@
     <nav>
         <span class="logo"><a href="{% url 'main:index' %}">Learn Alert</a></span>
         <ul>
-            <li><a href="{% url 'main:video_list' %}">Videos</a></li>
+            <li><a href="{% url 'main:video_list' %}" hx-get="{% url 'main:video_list' %}" hx-push-url="true"
+                    hx-swap="innerHTML" hx-target="#main">Videos</a></li>
             <li><a href="#">Posts</a></li>
             <li><a href="#">About</a></li>
             <li><a href="#" class="dark-mode-toggle">
