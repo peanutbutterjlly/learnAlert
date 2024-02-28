@@ -25,6 +25,7 @@ ADMIN: str = config("ADMIN", cast=str)
 urlpatterns: list = [
     path(ADMIN, admin.site.urls),
     path("", include("apps.main.urls")),
+    path("videos/", include("apps.video.urls")),
     path("__debug__/", include("debug_toolbar.urls")),
     path("__reload__/", include("django_browser_reload.urls")),
 ]

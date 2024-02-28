@@ -18,18 +18,18 @@ class MainHomeView(TemplateView):
         return context
 
 
-@require_GET
-def video_list(request: HttpRequest) -> HttpResponse:
-    """checks the headers to determine if the request is HTMX or not then
-    renders a listing of all videos"""
-    videos: list[Video] = Video.objects.all()
+# @require_GET
+# def video_list(request: HttpRequest) -> HttpResponse:
+#     """checks the headers to determine if the request is HTMX or not then
+#     renders a listing of all videos"""
+#     videos: list[Video] = Video.objects.all()
 
-    if request.htmx:
-        template_name = "partials/_video_list.html"
-    else:
-        template_name = "video/videos.html"
+#     if request.htmx:
+#         template_name = "partials/_video_list.html"
+#     else:
+#         template_name = "video/videos.html"
 
-    return render(request, template_name, {"videos": videos})
+#     return render(request, template_name, {"videos": videos})
 
 
 @require_GET

@@ -18,21 +18,22 @@ from django.conf import settings
 from django.urls import path
 from django.views.decorators.cache import cache_page
 
-# from .views import AboutView, VideoDetailView, VideoListView, random_vids
-from .views import MainHomeView, video_list
+from .views import MainHomeView
 
 app_name = "main"
 
+# if settings.DEBUG:
+#     base_path = video_list
+# else:
+#     twelve_hours = 60 * 60 * 12
+#     base_path = cache_page(twelve_hours)(video_list)
+
 if settings.DEBUG:
-    home = path("", MainHomeView.as_view(), name="index")
+    base_path = MainHomeView.as_view()
 else:
     twelve_hours: int = 60 * 60 * 12
-    home = path("", cache_page(twelve_hours)(MainHomeView.as_view()), name="index")
+    base_path = cache_page(twelve_hours)(MainHomeView.as_view())
 
 urlpatterns = [
-    home,
-    path("videos/", video_list, name="video_list"),
-    # path("<int:pk>/", VideoDetailView.as_view(), name="detail"),
-    # path("about/", AboutView.as_view(), name="about"),
-    # path("random/", random_vids, name="randomize"),
+    path("", base_path, name="index"),
 ]
