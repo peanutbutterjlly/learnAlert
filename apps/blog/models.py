@@ -4,7 +4,7 @@ from django.urls import reverse
 from apps.main.models import Category
 
 
-class BlogPost(models.Model):
+class Post(models.Model):
     title = models.CharField(max_length=150)
     content = models.TextField()
     author = models.CharField(max_length=50)

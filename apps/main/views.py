@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.views.decorators.http import require_GET
 from django.views.generic import TemplateView
 
-from apps.blog.models import BlogPost
+from apps.blog.models import Post
 from apps.video.models import Video
 
 
@@ -13,7 +13,7 @@ class MainHomeView(TemplateView):
     def get_context_data(self, **kwargs):
         """add the 3 most recent blog posts and videos to the context"""
         context = super().get_context_data(**kwargs)
-        context["posts"] = BlogPost.objects.all()[:3]
+        context["posts"] = Post.objects.all()[:3]
         context["videos"] = Video.objects.all()[:3]
         return context
 
@@ -27,14 +27,14 @@ def video_list(request: HttpRequest) -> HttpResponse:
     if request.htmx:
         template_name = "partials/_video_list.html"
     else:
-        template_name = "main/videos.html"
+        template_name = "video/videos.html"
 
     return render(request, template_name, {"videos": videos})
 
 
 @require_GET
 def blog_list(request: HttpRequest) -> HttpResponse:
-    posts: list[BlogPost] = BlogPost.objects.all()
+    posts: list[Post] = Post.objects.all()
 
     if request.htmx:
         template_name = "partials/_post_list.html"

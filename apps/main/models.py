@@ -17,7 +17,7 @@ class Comment(models.Model):
     email = models.EmailField(blank=True, null=True)
     created_date = models.DateTimeField(auto_now_add=True)
     blog_post = models.ForeignKey(
-        "blog.BlogPost",
+        "blog.Post",
         on_delete=models.CASCADE,
         related_name="comments",
         null=True,
