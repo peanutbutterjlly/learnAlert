@@ -31,7 +31,7 @@ else:
 
 urlpatterns = [
     home,
-    path("videos", video_list, name="video_list"),
+    path("videos/", video_list, name="video_list"),
     # path("<int:pk>/", VideoDetailView.as_view(), name="detail"),
     # path("about/", AboutView.as_view(), name="about"),
     # path("random/", random_vids, name="randomize"),

@@ -8,6 +8,7 @@ class BlogPost(models.Model):
     title = models.CharField(max_length=150)
     content = models.TextField()
     author = models.CharField(max_length=50)
+    description = models.TextField(max_length=255, blank=True, null=True)
     published_date = models.DateTimeField()
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
 
@@ -20,3 +21,6 @@ class BlogPost(models.Model):
 
     def __str__(self) -> str:
         return self.title
+
+    def __repr__(self) -> str:
+        return f"{self.title} by {self.author}"

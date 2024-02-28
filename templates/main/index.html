@@ -13,6 +13,15 @@
     <h2>Latest Posts</h2>
     <p>Insights and thoughts on the journey of learning to code, featuring tips, tricks, and tutorials.</p>
     <div class="index-section-post-wrapper">
+        {% for post in posts %}
+        <a href="">
+            <article>
+                <h2 class="post-title">{{ post.title|capfirst }}</h2>
+                <p class="post-description">{{ post.description|truncatewords:10 }}</p>
+                <p>{{ post.content|truncatewords:20 }}</p>
+            </article>
+        </a>
+        {% endfor %}
         <a href="">
             <article>
                 <h2 class="post-title">Post Title</h2>
