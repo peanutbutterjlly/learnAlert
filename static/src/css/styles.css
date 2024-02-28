@@ -102,6 +102,10 @@ p {
   position: absolute;
 }
 
+:is(.header, .footer) {
+  padding-block: 0.5em;
+}
+
 /* templates/partials/_navigation.html */
 header {
   background: var(--pico-background-color) 08;
@@ -142,7 +146,7 @@ nav li:last-of-type::before {
 }
 
 /* templates/partials/_footer.html */
-footer {
+.footer {
   margin-block: 1em;
 }
 

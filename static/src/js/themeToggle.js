@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const isDarkMode = root.classList.toggle('dark');
     root.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
     setIcon(isDarkMode);
+    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light'); // Save preference
   }
 
   function setIcon(isDarkMode) {
@@ -33,7 +34,13 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function initialize() {
-    const isDarkMode = root.getAttribute('data-theme') === 'dark';
+    const storedTheme = localStorage.getItem('theme'); // Check stored preference
+    const prefersDark = window.matchMedia(
+      '(prefers-color-scheme: dark)'
+    ).matches;
+    const isDarkMode = storedTheme ? storedTheme === 'dark' : prefersDark;
+    root.classList.toggle('dark', isDarkMode);
+    root.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
     setIcon(isDarkMode);
     toggler.addEventListener('click', toggleDarkMode);
   }
