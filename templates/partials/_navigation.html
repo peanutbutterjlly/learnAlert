@@ -3,11 +3,19 @@
     <nav>
         <span class="logo"><a href="{% url 'main:index' %}">Learn Alert</a></span>
         <ul>
-            <li><a href="{% url 'video:list' %}" hx-get="{% url 'video:list' %}" hx-push-url="true" hx-swap="innerHTML"
-                    hx-target="#main">Videos</a></li>
-            <li><a href="#">Posts</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#" class="dark-mode-toggle">
+            <li>
+                <a href="{% url 'video:list' %}" hx-get="{% url 'video:list' %}" hx-push-url="true" hx-swap="innerHTML"
+                    hx-target="#main">Videos</a>
+            </li>
+            <li>
+                <a href="{% url 'blog:list' %}" hx-get="{% url 'blog:list' %}" hx-push-url="true" hx-swap="innerHTML"
+                    hx-target="#main">Posts</a>
+            </li>
+            <li>
+                <a href="#">About</a>
+            </li>
+            <li>
+                <a href="#" class="dark-mode-toggle">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                         class="feather feather-sun">

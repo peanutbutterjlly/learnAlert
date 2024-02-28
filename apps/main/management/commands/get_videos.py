@@ -28,12 +28,11 @@ class Command(BaseCommand):
     def get_videos(self) -> list[dict]:
         """get programming related videos from the YouTube API"""
 
-        MAX_RESULTS = 3
+        MAX_RESULTS = 5
         # the total number of videos you'll be getting is MAX_RESULTS * len(QUERIES)
         QUERIES = {
             "javascript web development tips and tricks": "Javascript",
             "django python programming": "Django",
-            "html css javascript web development": "Web Development",
             "css programming tips and tricks": "CSS",
         }
 

@@ -1,4 +1,4 @@
-"""video URL Configuration
+"""main URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.1/topics/http/urls/
@@ -22,15 +22,11 @@ from .views import MainHomeView
 
 app_name = "main"
 
-# if settings.DEBUG:
-#     base_path = video_list
-# else:
-#     twelve_hours = 60 * 60 * 12
-#     base_path = cache_page(twelve_hours)(video_list)
-
 if settings.DEBUG:
+    # show an uncached version of the home page
     base_path = MainHomeView.as_view()
 else:
+    # cache the home page in production
     twelve_hours: int = 60 * 60 * 12
     base_path = cache_page(twelve_hours)(MainHomeView.as_view())
 

@@ -1,3 +1,12 @@
-{% for post in posts %}
-
-{% endfor %}
+<div class="index-section-post-wrapper">
+    {% for post in posts %}
+    <a href="{{ post.get_absolute_url }}">
+        <article>
+            <h2 class="post-title">{{ post.title|capfirst }}</h2>
+            <p class="post-description">{{ post.description|truncatewords:10 }}</p>
+            <p>{{ post.content|safe|truncatewords:20 }}</p>
+            <p>Category: {{ post.category }}</p>
+        </article>
+    </a>
+    {% endfor %}
+</div>
