@@ -10,4 +10,16 @@
     <p class="post-date">Published: {{ post.published_date|date }}</p>
     {{ post.content|safe }}
 </section>
+<aside>
+    <div class="like-section">
+        <form class="like-form" action="{% url 'blog:detail' post.pk %}" method="post"
+            hx-post="{% url 'blog:detail' post.pk %}" hx-trigger="click once" hx-target=".like-count"
+            hx-swap="innerHTML">
+            {% csrf_token %}
+            <input type="hidden" name="like" value="1">
+            <button class="like-button" type="submit">👍</button>
+        </form>
+        <span class="like-count">Likes: {{ post.likes }}</span>
+    </div>
+</aside>
 {% endblock content %}

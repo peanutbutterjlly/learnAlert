@@ -11,6 +11,7 @@ class Post(models.Model):
     description = models.TextField(max_length=255, blank=True, null=True)
     published_date = models.DateTimeField()
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
+    likes = models.PositiveIntegerField(default=0)
 
     def get_absolute_url(self) -> str:
         # you have to namespace the url in the path function and provide it the name of 'detail'

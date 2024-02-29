@@ -22,3 +22,20 @@ class PostDetailView(DetailView):
     context_object_name: str = "post"
     model = Post
     template_name: str = "blog/detail.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["next_post"] = Post.objects.filter(id__gt=self.object.id).first()
+        context["previous_post"] = Post.objects.filter(id__lt=self.object.id).last()
+        return context
+
+    def post(self, request: HttpRequest, *args, **kwargs):
+        post = self.get_object()
+        if "like" in request.POST:
+            post.likes += 1
+            post.save()
+            print(f"Likes: {post.likes}")
+            if request.htmx:
+                print(f"returning likes: {post.likes}")
+                return HttpResponse(f"Likes: {post.likes}")
+        return super().post(request, *args, **kwargs)
