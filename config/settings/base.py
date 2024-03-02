@@ -1,4 +1,5 @@
 from pathlib import Path
+
 from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -85,7 +86,7 @@ STATICFILES_DIRS = [
     BASE_DIR / "static/src",
 ]
 
-STATIC_ROOT = BASE_DIR / "static/build"
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field

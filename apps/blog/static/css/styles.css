@@ -1,0 +1,46 @@
+.post-title {
+  font-size: 1.5rem;
+}
+
+.post-description {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 0.8rem;
+}
+
+.post-date {
+  font-weight: 300;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-2px);
+  }
+  75% {
+    transform: translateX(2px);
+  }
+}
+
+.like-section {
+  display: flex;
+  align-items: center;
+}
+
+.like-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin: 0;
+}
+
+.like-button:focus {
+  animation: shake 0.3s;
+  box-shadow: none;
+  outline: none;
+}

@@ -61,4 +61,4 @@ MIDDLEWARE += [
 
 SECURE_SSL_REDIRECT = True
 
-STATIC_ROOT: Path = BASE_DIR / "static/"
+STATIC_ROOT: Path = BASE_DIR / "staticfiles/"
