@@ -100,6 +100,13 @@ p {
   font-size: 0.8rem;
 }
 
+body {
+  display: grid;
+  grid-template-rows: auto auto 1fr auto auto;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
 /* templates/partials/_navigation.html */
 header {
   background: var(--pico-background-color) 08;
@@ -155,4 +162,5 @@ footer ul li {
   aspect-ratio: 1/1;
   border-radius: 8px;
   flex: 1 0 13rem;
+  box-shadow: var(--shadow-lg);
 }
