@@ -34,8 +34,6 @@ class PostDetailView(DetailView):
         if "like" in request.POST:
             post.likes += 1
             post.save()
-            print(f"Likes: {post.likes}")
             if request.htmx:
-                print(f"returning likes: {post.likes}")
                 return HttpResponse(f"Likes: {post.likes}")
         return super().post(request, *args, **kwargs)

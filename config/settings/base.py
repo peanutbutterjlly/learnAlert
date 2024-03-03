@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     "apps.blog",
     "apps.video",
     # third party
+    "compressor",
     "django_htmx",
 ]
 
@@ -44,6 +45,7 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "django_htmx.middleware.HtmxMiddleware",
+    "django.middleware.gzip.GZipMiddleware",
 ]
 
 ROOT_URLCONF = "config.urls"
@@ -83,7 +85,16 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 
+STATICFILES_FINDERS = (
+    "django.contrib.staticfiles.finders.FileSystemFinder",
+    "django.contrib.staticfiles.finders.AppDirectoriesFinder",
+    "compressor.finders.CompressorFinder",
+)
+
 STATIC_ROOT = BASE_DIR / "staticfiles"
+
+# is normally opposite of DEBUG, this will collect and compress files - similar to collectstatic
+# COMPRESS_ENABLED = True
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field

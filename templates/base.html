@@ -1,3 +1,4 @@
+{% load compress %}
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -5,13 +6,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% compress css %}
     <link rel="stylesheet" href="{% static 'main/css/pico.css' %}">
     <link rel="stylesheet" href="{% static 'main/css/styles.css' %}">
     <link rel="stylesheet" href="{% static 'video/css/styles.css' %}">
     <link rel="stylesheet" href="{% static 'blog/css/styles.css' %}">
+    {% endcompress %}
+    {% compress js %}
     <script src="{% static 'main/js/htmx.min.js' %}" defer></script>
     <script src="{% static 'main/js/liteYtEmbed.js' %}" type="module"></script>
     <script src="{% static 'main/js/themeToggle.js' %}" type="module"></script>
+    {% endcompress %}
     <title>{% block title %}Learn Alert{% endblock %}</title>
     {% block style %}{% endblock style %}
 </head>
