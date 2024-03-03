@@ -44,17 +44,11 @@ html:focus-within {
   font: inherit;
 }
 
-/* :where(p, h1, h2, h3, h4, h5, h6, li) {
-  max-inline-size: var(--measure);
-} */
-
 :is(h1, h2, h3, h4, h5, h6) {
   line-height: var(--heading-line-height);
   font-family: var(--heading-font-family);
   font-weight: 600;
   letter-spacing: -0.022em;
-  margin-top: 2.25rem;
-  margin-bottom: 1rem;
   text-wrap: balance;
 }
 
@@ -77,10 +71,6 @@ h4 {
 
 h5 {
   font-size: 1.44rem;
-}
-
-small {
-  font-size: 0.889rem;
 }
 
 a {
@@ -117,8 +107,6 @@ header {
 }
 
 nav {
-  display: flex;
-  justify-content: space-between;
   align-items: center;
 }
 
@@ -128,19 +116,12 @@ nav .logo {
   margin-right: auto;
 }
 
-nav ul {
-  display: flex;
-  list-style: none;
-  gap: 1rem;
-}
-
 .dark-mode-toggle {
   display: flex;
   align-items: center;
   cursor: pointer;
 }
 
-/* i want to get rid of the content ::before thats on the .dark-mode-toggle's parent */
 nav li:last-of-type::before {
   content: none;
 }

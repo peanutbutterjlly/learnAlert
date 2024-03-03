@@ -14,5 +14,5 @@ else:
 
 urlpatterns = [
     path("", base_path, name="list"),
-    path("<int:pk>/", PostDetailView.as_view(), name="detail"),
+    path("<slug:slug>/", PostDetailView.as_view(), name="detail"),
 ]

@@ -6,15 +6,15 @@
 
 {% block content %}
 <section>
-    <h2 class="post-title">{{ post.title|capfirst }}</h2>
+    <h1>{{ post.title|capfirst }}</h1>
     <p class="post-description">{{ post.description }}</p>
     <p class="post-date">Published: {{ post.published_date|date }}</p>
     {{ post.content| markdown | safe }}
 </section>
 <aside>
     <div class="like-section">
-        <form class="like-form" action="{% url 'blog:detail' post.pk %}" method="post"
-            hx-post="{% url 'blog:detail' post.pk %}" hx-trigger="click once" hx-target=".like-count"
+        <form class="like-form" action="{% url 'blog:detail' post.slug %}" method="post"
+            hx-post="{% url 'blog:detail' post.slug %}" hx-trigger="click once" hx-target=".like-count"
             hx-swap="innerHTML">
             {% csrf_token %}
             <input type="hidden" name="like" value="1">

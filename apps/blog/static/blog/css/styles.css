@@ -5,13 +5,12 @@
 .post-description {
   font-size: 1.1rem;
   font-weight: 500;
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.7rem;
 }
 
 .post-date {
   font-weight: 300;
   font-size: 0.9rem;
-  text-transform: uppercase;
 }
 
 @keyframes shake {
