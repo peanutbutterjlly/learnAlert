@@ -34,32 +34,39 @@ class Command(BaseCommand):
             "javascript web development tips and tricks": "Javascript",
             "django python programming": "Django",
             "css programming tips and tricks": "CSS",
+            "web development": "Web development",
         }
+
+        # get videos based on relevance and rating
+        ORDER = (
+            "relevance",
+            "rating",
+        )
 
         search_results_for_video_ids: list[dict] = []
         video_id_to_category: dict = {}
 
         # this first query is to get a list of video ids
         for query, category_name in QUERIES.items():
-            search_params = {
-                "part": "snippet",
-                "maxResults": MAX_RESULTS,
-                "order": "relevance",
-                "q": query,
-                "safeSearch": "strict",
-                "type": "video",
-                "videoDuration": "medium",
-                "videoEmbeddable": "true",
-                "videoSyndicated": "true",  # can be played outside of YouTube
-            }
+            for order in ORDER:
+                search_params = {
+                    "part": "snippet",
+                    "maxResults": MAX_RESULTS,
+                    "order": order,
+                    "q": query,
+                    "type": "video",
+                    "videoDuration": "medium",
+                    "videoEmbeddable": "true",
+                    "videoSyndicated": "true",  # can be played outside of YouTube
+                }
 
-            search_response: dict = (
-                self.youtube_service.search().list(**search_params).execute()
-            )
-            for item in search_response.get("items", []):
-                video_id = item["id"]["videoId"]
-                video_id_to_category[video_id] = category_name
-                search_results_for_video_ids.append(item)
+                search_response: dict = (
+                    self.youtube_service.search().list(**search_params).execute()
+                )
+                for item in search_response.get("items", []):
+                    video_id = item["id"]["videoId"]
+                    video_id_to_category[video_id] = category_name
+                    search_results_for_video_ids.append(item)
 
         video_ids = [item["id"]["videoId"] for item in search_results_for_video_ids]
 
@@ -71,9 +78,7 @@ class Command(BaseCommand):
         }
 
         # Call the videos.list method to retrieve location details for each video.
-        video_response: dict = (
-            self.youtube_service.videos().list(**video_params).execute()
-        )
+        video_response: dict = self.youtube_service.videos().list(**video_params).execute()
 
         # set to keep track of the video titles already added
         already_added: set = set()
@@ -87,9 +92,7 @@ class Command(BaseCommand):
                         "description": video["snippet"]["description"],
                         "title": video["snippet"]["title"],
                         "vid_id": video.get("id"),
-                        "category_name": video_id_to_category.get(
-                            video["id"], "General"
-                        ),
+                        "category_name": video_id_to_category.get(video["id"], "General"),
                     }
                 )
                 already_added.add(video["id"])
