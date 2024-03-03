@@ -7,9 +7,9 @@ from apps.main.models import Category
 class Post(models.Model):
     title = models.CharField(max_length=150)
     content = models.TextField()
-    author = models.CharField(max_length=50)
+    author = models.CharField(max_length=50, default="Steve Rios")
     description = models.TextField(max_length=255, blank=True, null=True)
-    published_date = models.DateTimeField()
+    published_date = models.DateTimeField(auto_now_add=True)
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
     likes = models.PositiveIntegerField(default=0)
 
