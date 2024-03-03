@@ -140,6 +140,11 @@ nav li:last-of-type::before {
 /* templates/partials/_footer.html */
 .footer {
   margin-block: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1em;
+  flex-wrap: wrap;
 }
 
 footer ul {

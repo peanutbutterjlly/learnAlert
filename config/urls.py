@@ -20,6 +20,8 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include, path
 
+from .feeds import RssFeeds
+
 ADMIN: str = config("ADMIN", cast=str)
 
 urlpatterns: list = [
@@ -27,6 +29,7 @@ urlpatterns: list = [
     path("", include("apps.main.urls")),
     path("blog/", include("apps.blog.urls")),
     path("videos/", include("apps.video.urls")),
+    path("feeds/rss/", RssFeeds(), name="rss_feed"),
     path("__debug__/", include("debug_toolbar.urls")),
     path("__reload__/", include("django_browser_reload.urls")),
 ]
