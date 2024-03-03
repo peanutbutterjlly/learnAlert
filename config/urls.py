@@ -18,9 +18,16 @@ from decouple import config
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
+from django.contrib.sitemaps.views import sitemap
 from django.urls import include, path
 
+from apps.blog.sitemaps import BlogPostSitemap
+
 from .feeds import RssFeeds
+
+sitemaps = {
+    "blog_posts": BlogPostSitemap,
+}
 
 ADMIN: str = config("ADMIN", cast=str)
 
@@ -30,6 +37,12 @@ urlpatterns: list = [
     path("blog/", include("apps.blog.urls")),
     path("videos/", include("apps.video.urls")),
     path("feeds/rss/", RssFeeds(), name="rss_feed"),
+    path(
+        "sitemap.xml",
+        sitemap,
+        {"sitemaps": sitemaps},
+        name="django.contrib.sitemaps.views.sitemap",
+    ),
     path("__debug__/", include("debug_toolbar.urls")),
     path("__reload__/", include("django_browser_reload.urls")),
 ]
