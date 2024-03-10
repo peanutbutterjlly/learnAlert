@@ -13,6 +13,9 @@ class Post(models.Model):
     published_date = models.DateTimeField(auto_now_add=True)
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
     likes = models.PositiveIntegerField(default=0)
+    dislikes = models.PositiveIntegerField(default=0)
+    shocks = models.PositiveIntegerField(default=0)
+    eyes = models.PositiveIntegerField(default=0)
     slug = models.SlugField(unique=True)
 
     def get_absolute_url(self) -> str:

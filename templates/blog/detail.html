@@ -11,16 +11,20 @@
     <p class="post-date">Published: {{ post.published_date|date }}</p>
     {{ post.content| markdown | safe }}
 </section>
-<aside>
-    <div class="like-section">
-        <form class="like-form" action="{% url 'blog:detail' post.slug %}" method="post"
-            hx-post="{% url 'blog:detail' post.slug %}" hx-trigger="click once" hx-target=".like-count"
-            hx-swap="innerHTML">
+
+<aside class="reaction-wrapper">
+    {% for reaction, icon, number in reactions %}
+    <div class="{{ reaction }}-section">
+        <form class="{{ reaction }}-form" action="{% url 'blog:react_to_post' post.slug reaction %}" method="post"
+            hx-post="{% url 'blog:react_to_post' post.slug reaction %}" hx-trigger="click once"
+            hx-target=".{{ reaction }}-count" hx-swap="innerHTML">
             {% csrf_token %}
-            <input type="hidden" name="like" value="1">
-            <button class="like-button" type="submit">👍</button>
+            <input type="hidden" name="{{ reaction }}" value="{{ reaction }}">
+            <button class="{{ reaction }}-button" type="submit">{{ icon }}</button>
         </form>
-        <span class="like-count">Likes: {{ post.likes }}</span>
+        <span class="{{ reaction }}-count reaction-number">{{ number }}</span>
     </div>
+    {% endfor %}
+
 </aside>
 {% endblock content %}

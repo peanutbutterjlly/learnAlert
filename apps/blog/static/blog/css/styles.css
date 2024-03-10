@@ -13,7 +13,7 @@
   font-size: 0.9rem;
 }
 
-@keyframes shake {
+@keyframes shake-x {
   0%,
   100% {
     transform: translateX(0);
@@ -26,12 +26,40 @@
   }
 }
 
-.like-section {
-  display: flex;
-  align-items: center;
+@keyframes shake-y {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-2px);
+  }
+  75% {
+    transform: translateY(2px);
+  }
 }
 
-.like-button {
+.reaction-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.reaction-number {
+  display: flex;
+  justify-content: center;
+}
+
+:is(.like-section, .dislike-section, .shock-section, .eye-section) {
+  display: grid;
+  place-content: center;
+}
+
+:is(.like-button, .dislike-button, .shock-button, .eye-button) {
   background: none;
   border: none;
   cursor: pointer;
@@ -39,8 +67,14 @@
   margin: 0;
 }
 
-.like-button:focus {
-  animation: shake 0.3s;
+:is(.like-button:focus, .shock-button:focus, ) {
+  animation: shake-x 0.3s;
+  box-shadow: none;
+  outline: none;
+}
+
+:is(.dislike-button:focus, .eye-button:focus) {
+  animation: shake-y 0.3s;
   box-shadow: none;
   outline: none;
 }
