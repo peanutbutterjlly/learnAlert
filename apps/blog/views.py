@@ -24,51 +24,17 @@ class PostDetailView(DetailView):
     template_name: str = "blog/detail.html"
 
     def get_context_data(self, **kwargs) -> dict:
+        context = super().get_context_data(**kwargs)
         reactions = [
             ("like", "👍", self.object.likes),
             ("dislike", "💩", self.object.dislikes),
             ("shock", "😱", self.object.shocks),
             ("eye", "👀", self.object.eyes),
         ]
-
-        context = super().get_context_data(**kwargs)
         context["next_post"] = Post.objects.filter(id__gt=self.object.id).first()
         context["previous_post"] = Post.objects.filter(id__lt=self.object.id).last()
         context["reactions"] = reactions
         return context
-
-
-@require_POST
-def like_post(request: HttpRequest, slug: str) -> HttpResponse:
-    print("liking post")
-    post = Post.objects.get(slug=slug)
-    post.likes += 1
-    post.save()
-    return HttpResponse(f"Likes: {post.likes}")
-
-
-@require_POST
-def dislike_post(request: HttpRequest, slug: str) -> HttpResponse:
-    post = Post.objects.get(slug=slug)
-    post.dislikes += 1
-    post.save()
-    return HttpResponse(f"Dislikes: {post.dislikes}")
-
-
-@require_POST
-def shock_post(request: HttpRequest, slug: str) -> HttpResponse:
-    post = Post.objects.get(slug=slug)
-    post.shocks += 1
-    post.save()
-    return HttpResponse(f"Shocks: {post.shocks}")
-
-
-@require_POST
-def eye_post(request: HttpRequest, slug: str) -> HttpResponse:
-    post = Post.objects.get(slug=slug)
-    post.eyes += 1
-    post.save()
-    return HttpResponse(f"Eyes: {post.eyes}")
 
 
 @require_POST

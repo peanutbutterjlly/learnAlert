@@ -20,7 +20,7 @@
             hx-target=".{{ reaction }}-count" hx-swap="innerHTML">
             {% csrf_token %}
             <input type="hidden" name="{{ reaction }}" value="{{ reaction }}">
-            <button class="{{ reaction }}-button" type="submit">{{ icon }}</button>
+            <button class="{{ reaction }}-button reaction-button" type="submit">{{ icon }}</button>
         </form>
         <span class="{{ reaction }}-count reaction-number">{{ number }}</span>
     </div>
