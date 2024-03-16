@@ -10,6 +10,7 @@ class Post(models.Model):
     content = models.TextField()
     author = models.CharField(max_length=50, default="Steve Rios")
     description = models.TextField(max_length=255, blank=True, null=True)
+    meta_keywords = models.TextField(max_length=255, blank=True, null=True)
     published_date = models.DateTimeField(auto_now_add=True)
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
     likes = models.PositiveIntegerField(default=0)

@@ -6,6 +6,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block meta %}
+    {% endblock meta %}
     {% compress css %}
     <link rel="stylesheet" href="{% static 'main/css/pico.css' %}">
     <link rel="stylesheet" href="{% static 'main/css/styles.css' %}">
@@ -17,7 +19,7 @@
     <script src="{% static 'main/js/liteYtEmbed.js' %}" type="module"></script>
     <script src="{% static 'main/js/themeToggle.js' %}" type="module"></script>
     {% endcompress %}
-    <title>{% block title %}Learn Alert{% endblock %}</title>
+    <title>{% block title %}Python on the Web{% endblock %}</title>
     {% block style %}{% endblock style %}
 </head>
 
