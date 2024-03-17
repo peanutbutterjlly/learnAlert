@@ -13,11 +13,11 @@
     <link rel="stylesheet" href="{% static 'video/css/styles.css' %}">
     <link rel="stylesheet" href="{% static 'blog/css/styles.css' %}">
     {% endcompress %}
-    {% compress js %}
+
     <script src="{% static 'main/js/htmx.js' %}" defer></script>
     <script src="{% static 'main/js/liteYtEmbed.js' %}" type="module"></script>
     <script src="{% static 'main/js/themeToggle.js' %}" type="module"></script>
-    {% endcompress %}
+
     <link rel="shortcut icon" href="{% static 'main/code.svg' %}" type="image/x-icon">
     <title>{% block title %}Python on the Web{% endblock %}</title>
     {% block style %}{% endblock style %}
