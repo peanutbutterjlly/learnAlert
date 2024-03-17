@@ -43,9 +43,12 @@ urlpatterns: list = [
         {"sitemaps": sitemaps},
         name="django.contrib.sitemaps.views.sitemap",
     ),
-    path("__debug__/", include("debug_toolbar.urls")),
-    path("__reload__/", include("django_browser_reload.urls")),
 ]
 
 if settings.DEBUG:
+    debug_patterns: list = [
+        path("__debug__/", include("debug_toolbar.urls")),
+        path("__reload__/", include("django_browser_reload.urls")),
+    ]
+    urlpatterns.extend(debug_patterns)
     urlpatterns.extend(static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT))

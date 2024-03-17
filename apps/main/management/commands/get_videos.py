@@ -5,16 +5,6 @@ from googleapiclient.discovery import build
 from apps.main.models import Category
 from apps.video.models import Video
 
-# video model, for reference
-# class Video(models.Model):
-#     title = models.CharField(max_length=200)
-#     description = models.CharField(max_length=500, blank=True, null=True)
-#     vid_id = models.CharField(max_length=20, unique=True, blank=True, null=True)
-#     retrieved_at = models.DateTimeField(auto_now_add=True)
-#     category = models.ForeignKey(
-#         Category, on_delete=models.SET_NULL, related_name="videos", null=True
-#     )
-
 
 class Command(BaseCommand):
     help = "Bot that will get the videos from the YouTube API to be stored in the database."
