@@ -10,7 +10,7 @@ def find_base_directory() -> str:
 def find_css_files(base_dir: str) -> list:
     """Return a list of absolute paths to css files."""
     css_files = []
-    for root, _, files in os.walk(f"{base_dir}/static/src/css"):
+    for root, _, files in os.walk(f"{base_dir}/apps/"):
         for file in files:
             if file.endswith(".css"):
                 absolute_path = f"{root}/{file}"
@@ -33,7 +33,7 @@ def find_html_files(base_dir: str) -> list:
 
 def define_output_file(base_dir: str) -> str:
     """Return the path to the output file."""
-    return f"{base_dir}/static/build/css/"
+    return f"{base_dir}/staticfiles/"
 
 
 def main() -> None:
