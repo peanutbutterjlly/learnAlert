@@ -3,8 +3,9 @@ from decouple import config
 from .base import *
 
 ALLOWED_HOSTS += [
-    # TODO - add host here
-    "add host later",
+    "pythonweb.net",
+    "www.pythonweb.net",
+    "*.pythonweb.net",
 ]
 
 AUTH_PASSWORD_VALIDATORS = [

@@ -23,6 +23,7 @@ class Command(BaseCommand):
         QUERIES = {
             "javascript web development tips and tricks": "Javascript",
             "django python programming": "Django",
+            "python web development": "Python",
             "css programming tips and tricks": "CSS",
             "web development": "Web development",
         }

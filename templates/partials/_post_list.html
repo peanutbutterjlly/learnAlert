@@ -1,6 +1,8 @@
 {% load markdown_extras %}
 
 <div class="index-section-post-wrapper">
+    {% if posts %}
+
     {% for post in posts %}
     <a href="{{ post.get_absolute_url }}">
         <article>
@@ -10,4 +12,7 @@
         </article>
     </a>
     {% endfor %}
+    {% else %}
+    <p>Nothin posted yet!</p>
+    {% endif %}
 </div>

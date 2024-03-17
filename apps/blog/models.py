@@ -27,7 +27,7 @@ class Post(models.Model):
     dislikes = models.PositiveIntegerField(default=0)
     shocks = models.PositiveIntegerField(default=0)
     eyes = models.PositiveIntegerField(default=0)
-    slug = models.SlugField(unique=True)
+    slug = models.SlugField(unique=True, max_length=200)
 
     objects = models.Manager()
     published = PublishedManager()

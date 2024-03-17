@@ -2,17 +2,20 @@
 
 {% block content %}
 
-<h1 class="sr-only">Learn Alert Homepage</h1>
+<h1 class="sr-only">Python on the Web Homepage</h1>
+
 <section class="index-section videos">
     <h2>Latest Videos</h2>
     <p>Videos from the <a href="https://developers.google.com/youtube/v3" target="_blank">YouTube API</a> to help you
         build awesome stuff</p>
     {% include 'partials/_video_list.html' %}
+    <p><a href="{% url 'video:list' %}">See all videos</a></p>
 </section>
 
 <section class="index-section posts">
     <h2>Latest Posts</h2>
-    <p>Insights and thoughts on the journey of learning to code, featuring tips, tricks, and tutorials.</p>
+    <p>Insights and thoughts on the journey of learning to code, featuring tips, tricks, tutorials, or general life
+        musings.</p>
     <div class="index-section-post-wrapper">
         {% include 'partials/_post_list.html' %}
     </div>
@@ -21,7 +24,7 @@
 <section class="index-section about">
     <h3>About</h3>
     <p>A place to see coding videos and read up on thoughts/insights about web development, Python/Django, CSS, and
-        JavaScript.</p>
+        JavaScript or just my thoughts about life in general.</p>
 </section>
 
 {% endblock %}
