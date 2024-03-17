@@ -8,7 +8,7 @@ from .models import Post
 
 @require_GET
 def blog_list(request: HttpRequest) -> HttpResponse:
-    posts: list[Post] = Post.objects.all()
+    posts: list[Post] = Post.published.all()
 
     if request.htmx:
         template_name = "partials/_post_list.html"

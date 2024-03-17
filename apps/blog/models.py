@@ -5,19 +5,32 @@ from django.utils.text import slugify
 from apps.main.models import Category
 
 
+class PublishedManager(models.Manager):
+    def get_queryset(self):
+        return super().get_queryset().filter(status=Post.Status.PUBLISHED)
+
+
 class Post(models.Model):
+    class Status(models.TextChoices):
+        DRAFT = "DF", "Draft"
+        PUBLISHED = "PB", "Published"
+
     title = models.CharField(max_length=150)
     content = models.TextField()
     author = models.CharField(max_length=50, default="Steve Rios")
-    description = models.TextField(max_length=255, blank=True, null=True)
-    meta_keywords = models.TextField(max_length=255, blank=True, null=True)
+    description = models.CharField(max_length=255, blank=True, null=True)
+    meta_keywords = models.CharField(max_length=255, blank=True, null=True)
     published_date = models.DateTimeField(auto_now_add=True)
+    status = models.CharField(max_length=2, choices=Status.choices, default=Status.DRAFT)
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
     likes = models.PositiveIntegerField(default=0)
     dislikes = models.PositiveIntegerField(default=0)
     shocks = models.PositiveIntegerField(default=0)
     eyes = models.PositiveIntegerField(default=0)
     slug = models.SlugField(unique=True)
+
+    objects = models.Manager()
+    published = PublishedManager()
 
     def get_absolute_url(self) -> str:
         # you have to namespace the url in the path function and provide it the name of 'detail'
