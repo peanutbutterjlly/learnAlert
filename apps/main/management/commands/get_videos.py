@@ -19,7 +19,7 @@ class Command(BaseCommand):
         """get programming related videos from the YouTube API"""
 
         MAX_RESULTS = 3
-        # the total number of videos you'll be getting is MAX_RESULTS * len(QUERIES)
+        # the total number of videos you'll be getting is MAX_RESULTS * (len(QUERIES) + len(ORDER))
         QUERIES = {
             "javascript web development tips and tricks": "Javascript",
             "django python programming": "Django",
