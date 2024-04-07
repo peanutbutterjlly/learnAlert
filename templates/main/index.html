@@ -14,17 +14,20 @@
 
 <section class="index-section posts">
     <h2>Latest Posts</h2>
-    <p>Insights and thoughts on the journey of learning to code, featuring tips, tricks, tutorials, or general life
-        musings.</p>
+    <p>Learn to code, featuring tips, tricks, and tutorials. NOTE: These posts are written by <a
+            href="https://www.anthropic.com/" target="_blank">Anthropic's</a> Claude API</p>
     <div class="index-section-post-wrapper">
         {% include 'partials/_post_list.html' %}
     </div>
+    <p><a href="{% url 'blog:list' %}">See all posts</a></p>
 </section>
 
 <section class="index-section about">
     <h3>About</h3>
     <p>A place to see coding videos and read up on thoughts/insights about web development, Python/Django, CSS, and
-        JavaScript or just my thoughts about life in general.</p>
+        JavaScript. The videos are gathered from YouTube and the posts are written by Anthropic/Claude. Content is
+        automatically gathered and posted via cron-jobs/scripts. If you see something you like, <a
+            href="mailto:steverios.sr2@gmail.com">please let me know</a>!</p>
 </section>
 
 {% endblock %}

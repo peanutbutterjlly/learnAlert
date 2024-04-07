@@ -12,7 +12,7 @@ def video_list(request: HttpRequest) -> HttpResponse:
     videos: list[Video] = Video.objects.all()
 
     if request.htmx:
-        template_name = "partials/_video_list.html"
+        template_name = "partials/_video_list_page.html"
     else:
         template_name = "video/videos.html"
 

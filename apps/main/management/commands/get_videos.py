@@ -25,7 +25,7 @@ class Command(BaseCommand):
             "django python programming": "Django",
             "python web development": "Python",
             "css programming tips and tricks": "CSS",
-            "web development": "Web development",
+            "web development": "Web Development",
         }
 
         # get videos based on relevance and rating

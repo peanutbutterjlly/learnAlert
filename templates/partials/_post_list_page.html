@@ -1,0 +1,19 @@
+{% load markdown_extras %}
+<h1>Blog Posts</h1>
+<h2 style="font-size: .8rem;">These were written by <a href="https://www.anthropic.com/claude"
+        target="_blank">Claude</a></h2>
+<div class="index-section-post-wrapper">
+    {% if posts %}
+    {% for post in posts %}
+    <a href="{{ post.get_absolute_url }}">
+        <article>
+            <h2 class="post-title">{{ post.title|capfirst }}</h2>
+            <p class="post-description">{{ post.description|truncatewords:30 }}</p>
+            <p>Category: {{ post.category }}</p>
+        </article>
+    </a>
+    {% endfor %}
+    {% else %}
+    <p>Nothin posted yet!</p>
+    {% endif %}
+</div>

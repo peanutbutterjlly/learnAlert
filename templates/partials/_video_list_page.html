@@ -1,0 +1,7 @@
+<h1>Videos</h1>
+<div class="index-flex">
+    {% for video in videos %}
+    <lite-youtube class="index-video" videoid="{{ video.vid_id }}" videotitle="{{ video.title }}"
+        nocookie></lite-youtube>
+    {% endfor %}
+</div>

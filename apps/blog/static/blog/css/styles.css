@@ -62,12 +62,12 @@ main ul li {
   justify-content: center;
 }
 
-:is(.like-section, .dislike-section, .shock-section, .eye-section) {
+:is(.like-section, .dislike-section, .shock-section, .robot-section) {
   display: grid;
   place-content: center;
 }
 
-:is(.like-button, .dislike-button, .shock-button, .eye-button) {
+:is(.like-button, .dislike-button, .shock-button, .robot-button) {
   background: none;
   border: none;
   cursor: pointer;
@@ -81,7 +81,7 @@ main ul li {
   outline: none;
 }
 
-:is(.dislike-button:focus, .eye-button:focus) {
+:is(.dislike-button:focus, .robot-button:focus) {
   animation: shake-y 0.3s;
   box-shadow: none;
   outline: none;

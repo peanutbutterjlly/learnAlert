@@ -11,7 +11,7 @@ def blog_list(request: HttpRequest) -> HttpResponse:
     posts: list[Post] = Post.published.all()
 
     if request.htmx:
-        template_name = "partials/_post_list.html"
+        template_name = "partials/_post_list_page.html"
     else:
         template_name = "blog/posts.html"
 
@@ -26,10 +26,10 @@ class PostDetailView(DetailView):
     def get_context_data(self, **kwargs) -> dict:
         context = super().get_context_data(**kwargs)
         reactions = [
-            ("like", "👍", self.object.likes),
-            ("dislike", "💩", self.object.dislikes),
-            ("shock", "😱", self.object.shocks),
-            ("eye", "👀", self.object.eyes),
+            ("like", "👍", self.object.likes, "I (somehow) like it"),
+            ("dislike", "💩", self.object.dislikes, "This sucks!"),
+            ("shock", "😱", self.object.shocks, "Unbelievable."),
+            ("robot", "🤖️", self.object.robots, "Only a robot could've wrote this!"),
         ]
         context["next_post"] = Post.objects.filter(id__gt=self.object.id).first()
         context["previous_post"] = Post.objects.filter(id__lt=self.object.id).last()
@@ -52,9 +52,9 @@ def react_to_post(request: HttpRequest, slug: str, reaction: str) -> HttpRespons
     elif reaction == "shock":
         post.shocks += 1
         updated_count = post.shocks
-    elif reaction == "eye":
-        post.eyes += 1
-        updated_count = post.eyes
+    elif reaction == "robot":
+        post.robots += 1
+        updated_count = post.robots
     post.save()
 
     return HttpResponse(f"{updated_count}")
