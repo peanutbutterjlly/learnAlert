@@ -8,17 +8,17 @@ from .models import Post
 
 @require_GET
 def blog_list(request: HttpRequest) -> HttpResponse:
+    """renders a listing of all blog posts"""
     posts: list[Post] = Post.published.all()
 
-    if request.htmx:
-        template_name = "partials/_post_list_page.html"
-    else:
-        template_name = "blog/posts.html"
+    template_name = "blog/posts.html"
 
     return render(request, template_name, {"posts": posts})
 
 
 class PostDetailView(DetailView):
+    """renders a single blog post with reactions, next, and previous posts"""
+
     context_object_name: str = "post"
     model = Post
     template_name: str = "blog/detail.html"

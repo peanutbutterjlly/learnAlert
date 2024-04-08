@@ -4,12 +4,10 @@
         <span class="logo"><a href="{% url 'main:index' %}">Python on the Web</a></span>
         <ul>
             <li>
-                <a href="{% url 'video:list' %}" hx-get="{% url 'video:list' %}" hx-push-url="true" hx-swap="innerHTML"
-                    hx-target="#main">Videos</a>
+                <a href="{% url 'video:list' %}">Videos</a>
             </li>
             <li>
-                <a href="{% url 'blog:list' %}" hx-get="{% url 'blog:list' %}" hx-push-url="true" hx-swap="innerHTML"
-                    hx-target="#main">Posts</a>
+                <a href="{% url 'blog:list' %}">Posts</a>
             </li>
             <li>
                 <a href="#" class="dark-mode-toggle">
