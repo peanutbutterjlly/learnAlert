@@ -8,10 +8,12 @@
         <article>
             <h2 class="post-title">{{ post.title|capfirst }}</h2>
             <p class="post-description">{{ post.description|truncatewords:30 }}</p>
-            <p>Category: {{ post.category }}</p>
+            <p class="small" style="margin-bottom: .5rem;">Category: {{ post.category }}</p>
+            <p class="small" style="margin-bottom: 0;">Published: {{ post.published_date | date }}</p>
         </article>
     </a>
     {% endfor %}
+
     {% else %}
     <p>Nothin posted yet!</p>
     {% endif %}

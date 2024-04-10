@@ -1,0 +1,29 @@
+User-agent: anthropic-ai
+Disallow: /blog/*
+
+User-agent: CCBot
+Disallow: /blog/*
+
+User-agent: ChatGPT-User
+Disallow: /blog/*
+
+User-agent: ClaudeBot
+Disallow: /blog/*
+
+User-agent: Claude-Web
+Disallow: /blog/*
+
+User-agent: cohere-ai
+Disallow: /blog/*
+
+User-agent: Google-Extended
+Disallow: /blog/*
+
+User-agent: GPTBot
+Disallow: /blog/*
+
+User-agent: PerplexityBot
+Disallow: /blog/*
+
+User-agent: Scrapy
+Disallow: /blog/*

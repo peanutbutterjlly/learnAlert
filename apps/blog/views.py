@@ -24,15 +24,17 @@ class PostDetailView(DetailView):
     template_name: str = "blog/detail.html"
 
     def get_context_data(self, **kwargs) -> dict:
+        """add reactions & next and previous posts to the context"""
         context = super().get_context_data(**kwargs)
+        post: Post = self.get_object()
         reactions = [
             ("like", "👍", self.object.likes, "I (somehow) like it"),
             ("dislike", "💩", self.object.dislikes, "This sucks!"),
             ("shock", "😱", self.object.shocks, "Unbelievable."),
             ("robot", "🤖️", self.object.robots, "Only a robot could've wrote this!"),
         ]
-        context["next_post"] = Post.objects.filter(id__gt=self.object.id).first()
-        context["previous_post"] = Post.objects.filter(id__lt=self.object.id).last()
+        context["next_post"] = post.next_post
+        context["previous_post"] = post.previous_post
         context["reactions"] = reactions
         return context
 

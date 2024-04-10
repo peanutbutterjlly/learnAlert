@@ -47,6 +47,24 @@ class Post(models.Model):
     def __repr__(self) -> str:
         return f"{self.title} by {self.author}"
 
+    @property
+    def next_post(self):
+        """Returns the next published post based on published_date."""
+        return (
+            Post.published.filter(published_date__gt=self.published_date)
+            .order_by("published_date")
+            .first()
+        )
+
+    @property
+    def previous_post(self):
+        """Returns the previous published post based on published_date."""
+        return (
+            Post.published.filter(published_date__lt=self.published_date)
+            .order_by("-published_date")
+            .first()
+        )
+
     class Meta:
         ordering = ["-published_date"]
         indexes = [
