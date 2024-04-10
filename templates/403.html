@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block meta %}
+<meta name="description" content="403 - Access Denied">
+{% endblock meta %}
+
+{% block title %}
+403 - Access Denied
+{% endblock title %}
+
+
+{% block content %}
+<h1>Access Denied 🤭</h1>
+<p>Return to <a href="{% url 'main:index' %}">Home.</a></p>
+{% endblock content %}

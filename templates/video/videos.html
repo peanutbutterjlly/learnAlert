@@ -1,5 +1,13 @@
 {% extends 'base.html' %}
 
+{% block meta %}
+<meta name="description" content="Python and Web Development Videos">
+{% endblock meta %}
+
+{% block title %}
+Videos
+{% endblock title %}
+
 {% block content %}
 <h1>Videos</h1>
 {% include 'partials/_video_list.html' %}

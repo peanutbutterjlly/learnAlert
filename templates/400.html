@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block meta %}
+<meta name="description" content="Bad Request">
+{% endblock meta %}
+
+{% block title %}
+400 - Bad Request
+{% endblock title %}
+
+
+{% block content %}
+<h1>Bad Request!</h1>
+<p>Return to <a href="{% url 'main:index' %}">Home.</a></p>
+{% endblock content %}

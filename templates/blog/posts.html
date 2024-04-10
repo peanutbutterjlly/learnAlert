@@ -1,8 +1,14 @@
 {% extends 'base.html' %}
 
+{% block meta %}
+<meta name="description" content="Python and Web Development Blog Posts">
+{% endblock meta %}
+
+{% block title %}Blog Posts{% endblock title %}
+
 {% block content %}
 <h1>Blog Posts</h1>
 <h2 style="font-size: .8rem;">These were written by <a href="https://www.anthropic.com/claude"
-        target="_blank">Claude</a></h2>
+                target="_blank">Claude</a></h2>
 {% include 'partials/_post_list.html' %}
 {% endblock content %}

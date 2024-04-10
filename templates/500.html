@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block meta %}
+<meta name="description" content="500 - Internal Server Error">
+{% endblock meta %}
+
+{% block title %}
+500 - Internal Server Error
+{% endblock title %}
+
+
+{% block content %}
+<h1>Internal Server Error 💩</h1>
+<p>Return to <a href="{% url 'main:index' %}">Home.</a></p>
+{% endblock content %}
