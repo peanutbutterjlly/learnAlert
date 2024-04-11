@@ -632,8 +632,11 @@ body > main {
     max-width: 1450px;
   }
 }
-section {
+section,
+.section {
   margin-bottom: var(--pico-block-spacing-vertical);
+  max-width: 80ch;
+  margin-inline: auto;
 }
 b,
 strong {

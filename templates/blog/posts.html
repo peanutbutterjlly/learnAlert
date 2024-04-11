@@ -7,8 +7,10 @@
 {% block title %}Blog Posts{% endblock title %}
 
 {% block content %}
-<h1>Blog Posts</h1>
-<h2 style="font-size: .8rem;">These were written by <a href="https://www.anthropic.com/claude"
-                target="_blank">Claude</a></h2>
+<div class="section">
+    <h1>Blog Posts</h1>
+    <h2 style="font-size: .8rem;">These were written by <a href="https://www.anthropic.com/claude" target="_blank"
+            class="underline">Claude</a></h2>
+</div>
 {% include 'partials/_post_list.html' %}
 {% endblock content %}

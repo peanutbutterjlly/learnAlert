@@ -45,11 +45,11 @@
 
 <aside class="post-navigation">
     {% if previous_post %}
-    <p><a href="{{ previous_post.get_absolute_url }}">Previous Post - {{ previous_post }}</a></p>
+    <p><a class="underline" href="{{ previous_post.get_absolute_url }}">Previous Post - {{ previous_post }}</a></p>
     {% endif %}
 
     {% if next_post %}
-    <p><a href="{{ next_post.get_absolute_url }}">Next Post - {{ next_post }}</a></p>
+    <p><a class="underline" href="{{ next_post.get_absolute_url }}">Next Post - {{ next_post }}</a></p>
     {% endif %}
 </aside>
 {% endblock content %}

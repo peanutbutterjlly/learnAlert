@@ -1,8 +1,8 @@
-<div class="index-flex">
+<section class="index-flex">
     {% for video in videos %}
     <div style="flex: 1 12rem">
         <lite-youtube videoid="{{ video.vid_id }}" videotitle="{{ video.title }}" nocookie></lite-youtube>
         <p class="small">{{ video.title }}</p>
     </div>
     {% endfor %}
-</div>
+</section>
