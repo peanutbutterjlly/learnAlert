@@ -123,12 +123,14 @@ header {
 
 nav {
   align-items: center;
+  gap: 0.3rem;
 }
 
 nav .logo {
   font-size: 1.5rem;
   font-weight: 500;
   margin-right: auto;
+  text-wrap: balance;
 }
 
 .dark-mode-toggle {

@@ -10,15 +10,6 @@
 
 <h1 class="sr-only">Python on the Web Homepage</h1>
 
-<section class="index-section videos">
-    <h2>Latest Videos</h2>
-    <p>Videos from the <a class="underline" href="https://developers.google.com/youtube/v3" target="_blank">YouTube
-            API</a> to help you
-        build awesome stuff</p>
-    {% include 'partials/_video_list.html' %}
-    <p><a class="underline" href="{% url 'video:list' %}">See all videos</a></p>
-</section>
-
 <section class="index-section posts">
     <h2>Latest Posts</h2>
     <p>Learn to code, featuring tips, tricks, and tutorials. NOTE: These posts are written by <a
@@ -27,6 +18,15 @@
         {% include 'partials/_post_list.html' %}
     </div>
     <p><a class="underline" href="{% url 'blog:list' %}">See all posts</a></p>
+</section>
+
+<section class="index-section videos">
+    <h2>Latest Videos</h2>
+    <p>Videos from the <a class="underline" href="https://developers.google.com/youtube/v3" target="_blank">YouTube
+            API</a> to help you
+        build awesome stuff</p>
+    {% include 'partials/_video_list.html' %}
+    <p><a class="underline" href="{% url 'video:list' %}">See all videos</a></p>
 </section>
 
 <section class="index-section about">
