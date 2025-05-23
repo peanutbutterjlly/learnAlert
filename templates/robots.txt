@@ -22,6 +22,9 @@ Disallow: /blog/*
 User-agent: Google-Extended
 Disallow: /blog/*
 
+User-agent: GoogleOther
+Disallow: /blog/*
+
 User-agent: GPTBot
 Disallow: /blog/*
 
@@ -44,4 +47,34 @@ User-agent: PiplBot
 Disallow: /blog/*
 
 User-agent: Bytespider
+Disallow: /blog/*
+
+User-agent: Sogou Spider
+Disallow: /blog/*
+
+User-agent: Sogou web spider
+Disallow: /blog/*
+
+User-agent: Facebot
+Disallow: /blog/*
+
+User-agent: Baiduspider
+Disallow: /blog/*
+
+User-agent: YandexBot
+Disallow: /blog/*
+
+User-agent: Bingbot
+Disallow: /blog/*
+
+User-agent: AhrefsBot
+Disallow: /blog/*
+
+User-agent: SemrushBot
+Disallow: /blog/*
+
+User-agent: DotBot
+Disallow: /blog/*
+
+User-agent: MauiBot
 Disallow: /blog/*
