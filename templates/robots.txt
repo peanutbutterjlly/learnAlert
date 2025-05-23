@@ -30,3 +30,18 @@ Disallow: /blog/*
 
 User-agent: Scrapy
 Disallow: /blog/*
+
+User-agent: Applebot-Extended
+Disallow: /blog/*
+
+User-agent: Amazonbot
+Disallow: /blog/*
+
+User-agent: ImagesiftBot
+Disallow: /blog/*
+
+User-agent: PiplBot
+Disallow: /blog/*
+
+User-agent: Bytespider
+Disallow: /blog/*
