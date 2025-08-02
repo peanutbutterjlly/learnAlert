@@ -1,118 +1,130 @@
-:root {
-  /* typography */
-  --font-family: system-ui, sans-serif;
-  --heading-font-family: ui-rounded, 'Hiragino Maru Gothic ProN', Quicksand,
-    Comfortaa, Manjari, 'Arial Rounded MT', 'Arial Rounded MT Bold', Calibri,
-    source-sans-pro, sans-serif;
-  --font-size: clamp(1rem, calc(1.6vw + 0.3rem), 1.5rem);
-  --line-height: 1.6;
-  --heading-line-height: 1.15;
-  --measure: 80ch;
-  /* elevations */
-  --shadow-sm: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --shadow-md: 0 10px 15px -3px rgb(0 0 0 / 0.1),
-    0 4px 6px -4px rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1),
-    0 8px 10px -6px rgb(0 0 0 / 0.1);
+@layer base {
+  :root {
+    /* typography */
+    --font-family: system-ui, sans-serif;
+    --heading-font-family: ui-rounded, 'Hiragino Maru Gothic ProN', Quicksand,
+      Comfortaa, Manjari, 'Arial Rounded MT', 'Arial Rounded MT Bold', Calibri,
+      source-sans-pro, sans-serif;
+    --font-size: clamp(1rem, calc(1.6vw + 0.3rem), 1.5rem);
+    --line-height: 1.6;
+    --heading-line-height: 1.15;
+    --measure: 80ch;
+    /* elevations */
+    --shadow-sm: 0 4px 6px -1px rgb(0 0 0 / 0.1),
+      0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-md: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+      0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+      0 8px 10px -6px rgb(0 0 0 / 0.1);
 
-  font-size: var(--font-size);
-  line-height: var(--line-height);
-  font-family: var(--font-family);
-  text-rendering: optimizeSpeed;
-  -webkit-font-smoothing: antialiased;
-}
+    font-size: var(--font-size);
+    line-height: var(--line-height);
+    font-family: var(--font-family);
+    text-rendering: optimizeSpeed;
+    -webkit-font-smoothing: antialiased;
+  }
 
-* {
-  padding: 0;
-}
+  * {
+    padding: 0;
+  }
 
-html {
-  scrollbar-width: thin;
-}
+  html {
+    scrollbar-width: thin;
+  }
 
-html:focus-within {
-  scroll-behavior: smooth;
-}
+  html:focus-within {
+    scroll-behavior: smooth;
+  }
 
-:where(img, picture, video, canvas, svg) {
-  display: block;
-  font-style: italic;
-  text-align: center;
-}
+  :where(img, picture, video, canvas, svg) {
+    display: block;
+    font-style: italic;
+    text-align: center;
+  }
 
-:where(input, button, textarea, select) {
-  font: inherit;
-}
+  :where(input, button, textarea, select) {
+    font: inherit;
+  }
 
-:is(h1, h2, h3, h4, h5, h6) {
-  line-height: var(--heading-line-height);
-  font-family: var(--heading-font-family);
-  font-weight: 600;
-  letter-spacing: -0.022em;
-  text-wrap: balance;
-}
+  :is(h1, h2, h3, h4, h5, h6) {
+    line-height: var(--heading-line-height);
+    font-family: var(--heading-font-family);
+    font-weight: 600;
+    letter-spacing: -0.022em;
+    text-wrap: balance;
+  }
 
-h1 {
-  font-size: 2.986rem;
-  margin-top: 0;
-}
+  h1 {
+    font-size: 2.986rem;
+    margin-top: 0;
+  }
 
-h2 {
-  font-size: 2.488rem;
-}
+  h2 {
+    font-size: 2.488rem;
+  }
 
-h3 {
-  font-size: 2.074rem;
-}
+  h3 {
+    font-size: 2.074rem;
+  }
 
-h4 {
-  font-size: 1.728rem;
-}
+  h4 {
+    font-size: 1.728rem;
+  }
 
-h5 {
-  font-size: 1.44rem;
-}
+  h5 {
+    font-size: 1.44rem;
+  }
 
-a {
-  text-decoration: none;
-}
+  a {
+    text-decoration: none;
+  }
 
-a.underline {
-  text-decoration: underline;
-}
+  a.underline {
+    text-decoration: underline;
+  }
 
-p {
-  text-wrap: pretty;
-}
+  p {
+    text-wrap: pretty;
+  }
 
-section:not(:last-of-type) {
-  margin-block-end: 3rem;
-}
+  section:not(:last-of-type) {
+    margin-block-end: 3rem;
+  }
 
-.sr-only {
-  clip: rect(1px, 1px, 1px, 1px);
-  clip-path: inset(50%);
-  height: 1px;
-  width: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-}
+  .sr-only {
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+  }
 
-:is(.header, .footer) {
-  padding-block: 0.5em;
-}
+  :is(.header, .footer) {
+    padding-block: 0.5em;
+  }
 
-.small {
-  font-size: 0.8rem;
-}
+  .small {
+    font-size: 0.8rem;
+  }
 
-body {
-  display: grid;
-  grid-template-rows: auto auto 1fr auto auto;
-  min-height: 100vh;
-  min-height: 100dvh;
+  body {
+    display: grid;
+    grid-template-rows: auto auto 1fr auto auto;
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+
+  @view-transition {
+    navigation: auto;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    ::view-transition-group(*) {
+      animation-name: none;
+    }
+  }
 }
 
 /* templates/partials/_navigation.html */
