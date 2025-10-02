@@ -1,3 +1,4 @@
+from django.core.paginator import Paginator
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import get_object_or_404, render
 from django.views.decorators.http import require_GET, require_POST
@@ -9,11 +10,19 @@ from .models import Post
 @require_GET
 def blog_list(request: HttpRequest) -> HttpResponse:
     """renders a listing of all blog posts"""
-    posts: list[Post] = Post.published.all()
+    paginated_posts = Paginator(Post.published.all().order_by("-published_date"), 12)
+    page_number = request.GET.get("page")
+    page_obj = paginated_posts.get_page(page_number)
 
     template_name = "blog/posts.html"
 
-    return render(request, template_name, {"posts": posts})
+    context = {
+        "is_paginated": page_obj.has_other_pages(),
+        "page_obj": page_obj,
+        "posts": page_obj,
+    }
+
+    return render(request, template_name, context)
 
 
 class PostDetailView(DetailView):

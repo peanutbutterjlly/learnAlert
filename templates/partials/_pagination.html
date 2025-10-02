@@ -1,0 +1,78 @@
+<style>
+    .pagination {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        list-style: none;
+        gap: 1rem;
+        padding: 0;
+
+        .disabled-link {
+            cursor: not-allowed;
+            opacity: 0.8;
+            pointer-events: none;
+        }
+    }
+</style>
+<nav>
+    <ul class="pagination">
+        {% if page_obj.has_previous %}
+        <li>
+            <a href=" ?page={{ page_obj.previous_page_number }}">
+                <span class="sr-only">
+                    Go to the
+                </span>
+                Previous
+                <span class="sr-only">
+                    page
+                </span>
+            </a>
+        </li>
+        {% else %}
+        <li>
+            <a class="disabled-link">
+                <span class="sr-only">
+                    There is no
+                </span>
+                Previous
+                <span class="sr-only">
+                    page
+                </span>
+            </a>
+        </li>
+        {% endif %}
+
+        <span>
+            <span class="sr-only">
+                You are on
+            </span>
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+        </span>
+
+        {% if page_obj.has_next %}
+        <li>
+            <a href="?page={{ page_obj.next_page_number }}">
+                <span class="sr-only">
+                    Go to the
+                </span>
+                Next
+                <span class="sr-only">
+                    page
+                </span>
+            </a>
+        </li>
+        {% else %}
+        <li class="disabled">
+            <a class="disabled-link">
+                <span class="sr-only">
+                    There is no
+                </span>
+                Next
+                <span class="sr-only">
+                    page
+                </span>
+            </a>
+        </li>
+        {% endif %}
+    </ul>
+</nav>
